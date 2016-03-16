@@ -1,4 +1,4 @@
-    package main
+package main
 import (
     "fmt"
     "myapp"
@@ -38,6 +38,7 @@ func main() {
     elapsed = time.Since(start)
     fmt.Printf("createTestData in Redis took %s\n", elapsed)
 
+
 }
 //checkDBErr
 func checkDBErr(err error,db *gorm.DB) {
@@ -55,7 +56,8 @@ func checkErr(err error) {
         panic(err)
     }
 }
-//createTestData
+
+//createTestData in sequenial write
 func createTestData(db *gorm.DB,cache *myapp.RedisCache,inRedis bool) {
     createUsers(db,cache,1000,inRedis)
     createApps(db,cache,50,inRedis)
