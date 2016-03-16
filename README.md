@@ -3,29 +3,30 @@
 Benchmarking test has been performed in Linux Fedora 23 running in Virtual Machine with the following config. 
 
 ### CPU information(lscpu)
-* Architecture:          x86_64
-* CPU op-mode(s):        32-bit, 64-bit
-* Byte Order:            Little Endian
-* CPU(s):                1
-* On-line CPU(s) list:   0
-* Thread(s) per core:    1
-* Core(s) per socket:    1
-* Socket(s):             1
-* NUMA node(s):          1
-* Vendor ID:             GenuineIntel
-* CPU family:            6
-* Model:                 58
-* Model name:            Intel(R) Core(TM) i7-3517U CPU @ 1.90GHz
-* Stepping:              9
-* CPU MHz:               2394.560
-* BogoMIPS:              4789.12
-* Hypervisor vendor:     KVM
-* Virtualization type:   full
-* L1d cache:             32K
-* L1i cache:             32K
-* L2 cache:              256K
-* L3 cache:              4096K
-* NUMA node0 CPU(s):     0
+<pre>
+ Architecture:          x86_64
+ CPU op-mode(s):        32-bit, 64-bit
+ Byte Order:            Little Endian
+ CPU(s):                1
+ On-line CPU(s) list:   0
+ Thread(s) per core:    1
+ Core(s) per socket:    1
+ Socket(s):             1
+ NUMA node(s):          1
+ Vendor ID:             GenuineIntel
+ CPU family:            6
+ Model:                 58
+ Model name:            Intel(R) Core(TM) i7-3517U CPU @ 1.90GHz
+ Stepping:              9
+ CPU MHz:               2394.560
+ BogoMIPS:              4789.12
+ Hypervisor vendor:     KVM
+ Virtualization type:   full
+ L1d cache:             32K
+ L1i cache:             32K
+ L2 cache:              256K
+ L3 cache:              4096K
+ NUMA node0 CPU(s):     0</pre>
 
 ### RAM/Memory Info(free)
 <pre>
