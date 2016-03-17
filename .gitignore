@@ -1,0 +1,3 @@
+*.rdb
+*.aof
+go_redis_orm
