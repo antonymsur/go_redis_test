@@ -1,3 +1,4 @@
+// TODO This file has to be cleaned up, currently for benchmark testing RedisCache_test from myapp package is used.
 package main
 import (
     "fmt"
