@@ -29,6 +29,13 @@ func checkErr(err error) {
         panic(err)
     }
 }
+var (
+    db *gorm.DB
+	err error
+    cache *RedisCache
+    options redis.Options
+    dbinfo string
+)
 const (
     dBUSER     = "postgres"
     dBPASSWORD = "postgres"
@@ -38,6 +45,22 @@ const (
     RedisDB = 0
     inRedis    = true
 )
+
+func init() {
+    fmt.Println("init called ...")
+    if(!inRedis) {
+        dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
+            dBUSER, dBPASSWORD, dBNAME)
+        db, err = gorm.Open("postgres", dbinfo)
+        checkDBErr(err,db)
+        defer db.Close()
+        if db.HasTable(&User{}) == false {
+            db.AutoMigrate(&User{}, &Address{}, &App{},&AppUsage{},&Payment{},&Subscription{})
+        }
+    }else {
+        cache.Init(&options)
+    }
+}
 
 func testLoadDataFromDB(t *testing.T) {
     //createTestLoadRedisFromDB(db)

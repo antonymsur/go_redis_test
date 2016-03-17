@@ -7,11 +7,16 @@ import (
     _ "github.com/lib/pq"
     "math/rand"
     "strconv"
+    "gopkg.in/redis.v3"
 )
+//RedisAddress address where Redis Instance Running
 const (
     dBUSER     = "postgres"
     dBPASSWORD = "postgres"
     dBNAME     = "sample"
+    RedisAddress  = "localhost:6379"
+    RedisPass = ""
+    RedisDB = 0
 )
 func main() {
     dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
@@ -19,11 +24,16 @@ func main() {
     db, err := gorm.Open("postgres", dbinfo)
     checkDBErr(err,db)
     defer db.Close()
+    options := redis.Options{
+        Addr:     RedisAddress,
+        Password: RedisPass,
+        DB:       RedisDB,
+    }
     if db.HasTable(&myapp.User{}) == false {
         db.AutoMigrate(&myapp.User{}, &myapp.Address{}, &myapp.App{},&myapp.AppUsage{},&myapp.Payment{},&myapp.Subscription{})
     }
     cache := &myapp.RedisCache{}
-    cache.Init()
+    cache.Init(&options)
 
     //createTestLoadRedisFromDB(db)
     var inRedis bool
