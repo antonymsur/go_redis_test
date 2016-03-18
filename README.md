@@ -62,7 +62,7 @@ ok  	myapp	8.116s</pre>
 
 #### Run as BenchMark Time 30s :
 
-<b>go test -v -bench=. -count 1 -benchtime 1s  myapp</b><br>
+<b>go test -v -bench=. -count 1 -benchtime 30s  myapp</b><br>
 
 <b>RESULT</b> with <i><b>PostgreSQL</b></i> as DB gorm as ORM utility
 
@@ -71,8 +71,7 @@ PASS
 BenchmarkAddUser         	    5000	  12314176 ns/op
 BenchmarkAddSubscriptions	    5000	  13103826 ns/op
 BenchmarkAddApps         	   10000	   9518398 ns/op
-ok  	myapp	225.967s
-</pre>
+ok  	myapp	225.967s</pre>
 
 <b>RESULT</b> with <i><b>REDIS</b></i> as NoSQL DB and Caching with RDB and AOF (everysec)
 <pre>
