@@ -39,7 +39,7 @@ Swap:    2097148       968   2096180</pre>
 <b>4.4.4-301.fc23.x86_64</b>
 
 
-#### Test Command :
+#### Run as BenchMark Time 1s :
 
 <b>go test -v -bench=. -count 1 -benchtime 1s  myapp</b><br>
 
@@ -60,6 +60,27 @@ BenchmarkAddSubscriptions	    1000	   1579358 ns/op
 BenchmarkAddApps         	    2000	    858782 ns/op
 ok  	myapp	8.116s</pre>
 
+#### Run as BenchMark Time 30s :
+
+<b>go test -v -bench=. -count 1 -benchtime 1s  myapp</b><br>
+
+<b>RESULT</b> with <i><b>PostgreSQL</b></i> as DB gorm as ORM utility
+
+<pre>
+PASS
+BenchmarkAddUser         	    5000	  12314176 ns/op
+BenchmarkAddSubscriptions	    5000	  13103826 ns/op
+BenchmarkAddApps         	   10000	   9518398 ns/op
+ok  	myapp	225.967s
+</pre>
+
+<b>RESULT</b> with <i><b>REDIS</b></i> as NoSQL DB and Caching with RDB and AOF (everysec)
+<pre>
+PASS
+BenchmarkAddUser         	   20000	   1746022 ns/op
+BenchmarkAddSubscriptions	  100000	    803607 ns/op
+BenchmarkAddApps         	  100000	    722050 ns/op
+ok  	myapp	248.281s</pre>
 
 
 
